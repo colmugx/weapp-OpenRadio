@@ -7,6 +7,7 @@
 
 ## 截图（Screenshot）
 ![](https://github.com/ColMugX/GitBed/raw/master/blog/weapp-openradio.gif)
+![](https://github.com/ColMugX/GitBed/raw/master/weapp-openradio/1.gif)
 
 ~~没错这是之前的版本，由于更新了API现在长得略有不同~~
 
