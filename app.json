@@ -1,0 +1,36 @@
+{
+  "pages":[
+    "pages/recommend/recommend",
+    "pages/list/list",
+    "pages/player/player",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#D81E06",
+    "navigationBarTitleText": "OpenRadio",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+    "color": "#888",
+    "selectedColor": "#D81E06",
+    "backgroundColor": "#FFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/recommend/recommend",
+        "text": "推荐列表",
+        "iconPath": "asset/recommend.png",
+        "selectedIconPath": "asset/recommend-highlight.png"
+      },
+      {
+        "pagePath": "pages/list/list",
+        "text": "我的音乐",
+        "iconPath": "asset/music.png",
+        "selectedIconPath": "asset/music-highlight.png"
+      }
+
+    ]
+  }
+}

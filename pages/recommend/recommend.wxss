@@ -1,0 +1,47 @@
+.song_list {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	height: 150rpx;
+	margin: 10rpx; 
+	padding-bottom: 20rpx;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+.song-album {
+	width: 20%;
+	height: 100%;
+	padding: 5rpx;
+	box-sizing: border-box;
+	border: 1px solid #b5b5b5;
+}
+
+.song-album image {
+  width: 150rpx;
+  height: 150rpx;
+}
+
+.song-content {
+	display: flex;
+	flex: 1;
+	padding: 30rpx;
+
+}
+
+.song-content view {
+	margin-bottom: 20rpx;
+}
+
+.song-author {
+	font-size: 12px;
+	color: #888;
+}
+
+.song-play {
+	display: flex;
+	flex-direction: column;
+  	align-items: center;
+	box-sizing: border-box;
+	margin-right: 40rpx;
+	margin-top: 50rpx;
+}

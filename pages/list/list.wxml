@@ -1,0 +1,6 @@
+<view class="container">
+  <view bindtap="pauseSong">
+    <image src="/asset/pause.png" style="width:100px;height:100px" />
+  </view>
+  <text>暂时找不到怎么处理暂停，凑合着用先</text>
+</view>

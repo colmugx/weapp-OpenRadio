@@ -1,0 +1,18 @@
+// const host = 'http://tingapi.ting.baidu.com/v1/restserver/ting?format=json&calback=&from=webapp_music&method=';
+/**
+ * type = 1-新歌榜,2-热歌榜,11-摇滚榜,12-爵士,16-流行,21-欧美金曲榜,22-经典老歌榜,23-情歌对唱榜,24-影视金曲榜,25-网络歌曲榜
+ */
+// const hotlist = 'baidu.ting.billboard.billList&type=1&size=5&offset=0';
+// const reclist = 'baidu.ting.billboard.billList&type=2&size=10&offset=0';
+// const search = 'baidu.ting.search.catalogSug&query=';
+// const playM = 'baidu.ting.song.play&songid=';
+// const lrc = 'baidu.ting.song.lry&songid=';
+
+// exports.apiUrl = {
+//     host,
+//     hotlist,
+//     reclist,
+//     search,
+//     playM,
+//     lrc
+// }

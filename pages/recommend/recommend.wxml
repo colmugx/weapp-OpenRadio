@@ -1,0 +1,22 @@
+<scroll-view scroll-y="true">
+  <block wx:for="{{ songRec }}" wx:for-item="song">
+    <view class="song_list">
+      <view class="song-album">
+        <image src="{{ song.album }}" />
+      </view>
+      <view class="song-content">
+        <view class="content">
+          <view>
+            <text class="song-title">{{ song.title }}</text>
+          </view>
+          <view>
+            <text class="song-author">{{ song.author }} - {{song.album_title}}</text>
+          </view>
+        </view>
+      </view>
+        <view class="song-play" bindtap="playSong" data-id="{{ song.song_id }}">
+          <image src="/asset/play.png" style="width:30px;height:30px" />
+        </view>
+    </view>
+  </block>
+</scroll-view>
