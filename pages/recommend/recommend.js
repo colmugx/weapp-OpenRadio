@@ -59,27 +59,5 @@ Page({
     wx.navigateTo({
       url: '../player/player?id=' + id
     })
-    // wx.request({
-    //   url: api.apiUrl.host + api.apiUrl.song || '',
-    //   method: 'GET',
-    //   data: {
-    //     id: id,
-    //     ids: [id]
-    //   },
-    //   success: (res) => {
-    //     let songUrl = res.data.songs[0].mp3Url
-    //     let song_info = res.data.songs[0]
-    //     let name = song_info.name
-    //     let author = song_info.artists[0].name
-    //     wx.playBackgroundAudio({
-    //       dataUrl: songUrl,
-    //       title: name,
-    //       author: author,
-    //       success: () => {
-    //         console.log('正在播放《' + author + ' - ' + name + '》')
-    //       }
-    //     })
-    //   }
-    // })
   }
 })

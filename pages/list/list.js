@@ -18,6 +18,6 @@ Page({
     // 页面关闭
   },
   pauseSong: function () {
-    wx.pauseBackgroundAudio()
+    wx.stopBackgroundAudio()
   }
 })

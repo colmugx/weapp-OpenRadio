@@ -1,18 +1,22 @@
 <view class="container">
   <image src="{{ album }}" mode="scaleToFill" class="bg-album"/>
   <view class="music-album">
-    <text class="song-name">{{ songName }}</text>
-    <text>{{ songAuthor }}</text>
+    <view class="song-name">
+      <text>{{ songName }}</text>   
+    </view>
+    <view class="song-author">
+      <text>－ {{ songAuthor }} －</text>   
+    </view>
   </view>
   <view class="music-ctrl">
     <view class="m-progress">
-      <text style="font-size: 12px;color:#fff" class="left">00:00</text>
-      <progress percent="{{ musicPg }}" color="red" stroke-width="3" active class="progress"/>
-      <text style="font-size: 12px;color:#fff" class="right">99:99</text>
+      <text style="font-size: 12px;color:#fff" class="left">{{cpTime}}</text>
+      <progress percent="{{ musicPg }}" color="red" stroke-width="3" class="progress"/>
+      <text style="font-size: 12px;color:#fff" class="right">{{duration}}</text>
     </view>
     <view class="m-control">
-      <image src="/asset/icon-prev.png" style="width:25px;height:25px" />
-      <image src="/asset/icon-{{ status === 'play' ? 'pause' : 'play' }}.png" style="width:29px;height:29px" />
+      <image src="/asset/icon-prev.png" style="width:25px;height:25px" bindtap="clickPrev"/>
+      <image src="/asset/icon-{{ status === 'play' ? 'pause' : 'play' }}.png" style="width:29px;height:29px" bindtap="clickPlay"/>
       <image src="/asset/icon-next.png" style="width:25px;height:25px" />
     </view>
    </view>

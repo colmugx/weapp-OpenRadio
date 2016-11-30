@@ -6,19 +6,32 @@
   left: 0;
   height: 100%;
   width: 100%;
-  opacity: 0.3;
+  opacity: 0.6;
+  filter: blur(6px); 
 }
 .music-album {
   width: 100%;
   height: 1100rpx;
-  opacity: 0.7;
-  background-color: rgba(0,0,0,0.1);
-  
+  background-color: rgba(0,0,0,0.5);
+  flex-direction: column;
+  align-items: center;
+  padding-top: 25rpx 
 }
 
 .song-name {
-  z-index: 10;
-  color: #000;
+  align-items: center;
+  flex: 1;
+  color: #FFF;
+  font-size: 65rpx;
+  text-align: center;
+}
+
+.song-author {
+  align-items: center;
+  color: #FFF;
+  font-size: 38rpx;
+  text-align: center;
+  padding-top: 20rpx;
 }
 
 .music-ctrl {
@@ -34,20 +47,20 @@
 }
 
 .progress {
-  padding: 0 35px;
+  padding: 0 40px;
 }
 .left {
   position: relative;
-  top: 22rpx;
+  top: 19rpx;
   left: 0rpx;
-  margin-left: 10rpx
+  margin-left: 8rpx
 }
 .right {
   position: relative;
-  top: -20rpx;
+  top: -13rpx;
   left: 0rpx;
   float: right;
-  margin-right: 10rpx
+  margin-right: 8rpx
 }
 
 .m-control {

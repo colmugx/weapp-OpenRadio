@@ -1,15 +1,15 @@
 <scroll-view scroll-y="true">
-  <block wx:for="{{ songRec }}" wx:for-item="song">
+  <block wx:for="{{ songRec }}" wx:for-item="song" wx:key="song">
     <view class="song_list">
       <view class="song-album">
         <image src="{{ song.album }}" />
       </view>
       <view class="song-content">
         <view class="content">
-          <view>
+          <view bindtap="playSong" data-id="{{ song.song_id }}">
             <text class="song-title">{{ song.title }}</text>
           </view>
-          <view>
+          <view bindtap="playSong" data-id="{{ song.song_id }}">
             <text class="song-author">{{ song.author }} - {{song.album_title}}</text>
           </view>
         </view>
