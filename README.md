@@ -26,9 +26,9 @@
 ### 即将完成
 * 轮播专题页面
 * 播放器界面完善
-    ~~ title&author~~
-    ~~ album~~
-    ~~ progress&time~~
+    ~~title&author~~
+    ~~album~~
+    ~~progress&time~~
     
     * play&pause && next&prev
     * lrc

@@ -16,7 +16,7 @@
     </view>
     <view class="m-control">
       <image src="/asset/icon-prev.png" style="width:25px;height:25px" bindtap="clickPrev"/>
-      <image src="/asset/icon-{{ status === 'play' ? 'pause' : 'play' }}.png" style="width:29px;height:29px" bindtap="clickPlay"/>
+      <image src="/asset/icon-{{ status === 'pause' ? 'play' : 'pause' }}.png" style="width:29px;height:29px" bindtap="clickPlay"/>
       <image src="/asset/icon-next.png" style="width:25px;height:25px" />
     </view>
    </view>

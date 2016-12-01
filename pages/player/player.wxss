@@ -11,7 +11,7 @@
 }
 .music-album {
   width: 100%;
-  height: 1100rpx;
+  height: 1065rpx;
   background-color: rgba(0,0,0,0.5);
   flex-direction: column;
   align-items: center;

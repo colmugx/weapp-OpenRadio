@@ -33,7 +33,7 @@ Page({
         let code = res.data.code
         let title,author,album,album_title,song_id;
         if (code == 200) {
-          for (let i=0,len=10;i<len;i++) {
+          for (let i=0,len=songlist.length;i<len;i++) {
             title = songlist[i].name;
             author = songlist[i].artists[0].name;
             album = songlist[i].album.picUrl;
