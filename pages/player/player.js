@@ -16,9 +16,9 @@ Page({
     // 页面渲染完成
     this.getSongStatus()
     let songName = this.data.songName
-    wx.setNavigationBarTitle({
-        title: '正在播放 - ' + songName || 'OpenRadio Player'
-    });
+      wx.setNavigationBarTitle({
+          title: songName ? '正在播放 - ' + songName : 'OpenRadio Player'
+    })
   },
   onShow:function(){
     // 页面显示
@@ -68,9 +68,19 @@ Page({
         lv: -1
       },
       success: (res) => {
-        let strFot = /\[(\d{2}:\d{2})\.\d{2,}\](.*)/
+        // let strFot = /\[(\d{2}:\d{2})\.\d{2,}\](.*)/
+        let that = this
         let lrc = res.data.lrc.lyric
-        console.log(lrc)
+        if (!lrc) {
+          console.log(lrc)
+
+        }else {
+          let lrcArr = lrc.split('\n')
+          console.log(lrcArr)
+          that.setData({
+            lrcArr: lrcArr
+          })
+        }
       }
     })
   },

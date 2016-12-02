@@ -7,6 +7,7 @@ Page({
   onLoad:function(){
     // 页面初始化 options为页面跳转所带来的参数
     this.getPlayList();
+    this.getNetInfo();
   },
   onReady:function(){
     // 页面渲染完成
@@ -28,7 +29,8 @@ Page({
         id: api.setting.hotlistid
       },
       success: (res) => {
-        let rec = this.data.songRec
+        let rec = []
+        let that = this
         let songlist = res.data.result.tracks;
         let code = res.data.code
         let title,author,album,album_title,song_id;
@@ -47,6 +49,9 @@ Page({
               "song_id":song_id
             })
           }
+          that.setData({
+            songRec: rec
+          })
         }
       },
       fail: (err) => {
@@ -58,6 +63,21 @@ Page({
     let id = e.currentTarget.dataset.id
     wx.navigateTo({
       url: '../player/player?id=' + id
+    })
+  },
+  getNetInfo: function () {
+    wx.getNetworkType({
+      success: (e) => {
+        var type = e.networkType
+        if (type !== 'wifi') {
+          wx.showModal({
+            content: '您正在使用' + type + '网络。请注意流量。',
+            confirmText: '知道了',
+            confirmColor: '#D81E06',
+            showCancel: false
+          })
+        }
+      }
     })
   }
 })

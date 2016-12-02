@@ -11,7 +11,7 @@
   <view class="music-ctrl">
     <view class="m-progress">
       <text style="font-size: 12px;color:#fff" class="left">{{cpTime}}</text>
-      <progress percent="{{ musicPg }}" color="red" stroke-width="3" class="progress"/>
+      <progress percent="{{ musicPg }}" color="red" stroke-width="4" class="progress"/>
       <text style="font-size: 12px;color:#fff" class="right">{{duration}}</text>
     </view>
     <view class="m-control">
