@@ -4,7 +4,8 @@ Page({
   data:{
     ctrl: "音乐控制区域",
     cpTime: '00:00',
-    duration: '00:00'
+    duration: '00:00',
+    lrcList: []
   },
   onLoad:function(param) {
     // 页面初始化 options为页面跳转所带来的参数
@@ -68,20 +69,44 @@ Page({
         lv: -1
       },
       success: (res) => {
-        // let strFot = /\[(\d{2}:\d{2})\.\d{2,}\](.*)/
-        let that = this
-        let lrc = res.data.lrc.lyric
-        if (!lrc) {
-          console.log(lrc)
-
-        }else {
-          let lrcArr = lrc.split('\n')
-          console.log(lrcArr)
-          that.setData({
-            lrcArr: lrcArr
-          })
-        }
+        this.lrcReq(res)
       }
+    })
+  },
+  lrcReq: function (res) {
+    let strFot = /\[(\d{2}:\d{2})\.\d{2,}\](.*)/
+    let that = this
+    var outLrc = {}
+    var lrcList = []
+    let lrc = res.data.lrc.lyric
+    if (!lrc) return
+    let lrcArr = lrc.split('\n') || []
+
+    lrcArr.forEach(function(txt) {
+      let forLrc = txt.match(strFot)
+      if (!forLrc) return
+
+      var lrcTime = forLrc[1]
+      var lrcText = forLrc[2]
+      outLrc[lrcTime] = lrcText
+    }, that);
+
+    for (var i in outLrc) {
+      let ts = i.split(':')
+      let time = parseInt(ts[0]) * 60 + parseInt(ts[1])
+
+      if (lrcList.length) {
+				lrcList[lrcList.length - 1].endtime = time;
+			}
+
+      lrcList.push({
+        time: time,
+        lrc: outLrc[i]
+      })
+    }
+    console.log(lrcList)
+    that.setData({
+      lrcList: lrcList
     })
   },
   getSongStatus: function () {
@@ -94,6 +119,7 @@ Page({
           let duration = res.duration
           if (status === 1) {
             that.setData({
+              ct: currentPosition,
               cpTime: this.formatTime(currentPosition),
               duration: this.formatTime(duration),
               musicPg: ((currentPosition / duration) * 100)

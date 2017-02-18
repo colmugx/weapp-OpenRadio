@@ -7,6 +7,11 @@
     <view class="song-author">
       <text>－ {{ songAuthor }} －</text>   
     </view>
+    <view class="song-lyric">
+      <view wx:for="{{lrcList}}" wx:key="lrcText" class="song-lyric-con {{item.time <= ct && item.endtime > ct ? 'select' : ''}} {{ item.time < ct+3 && item.endtime > ct-2 ? 'ready' : '' }}">
+        <text> {{ item.lrc }} </text>
+      </view>
+    </view>  
   </view>
   <view class="music-ctrl">
     <view class="m-progress">
