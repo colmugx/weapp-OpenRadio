@@ -86,12 +86,12 @@ Page({
       let forLrc = txt.match(strFot)
       if (!forLrc) return
 
-      var lrcTime = forLrc[1]
-      var lrcText = forLrc[2]
+      let lrcTime = forLrc[1]
+      let lrcText = forLrc[2] || '(这段明显是间奏！)'
       outLrc[lrcTime] = lrcText
     }, that);
 
-    for (var i in outLrc) {
+    for (let i in outLrc) {
       let ts = i.split(':')
       let time = parseInt(ts[0]) * 60 + parseInt(ts[1])
 
@@ -104,7 +104,7 @@ Page({
         lrc: outLrc[i]
       })
     }
-    console.log(lrcList)
+    console.log(outLrc)
     that.setData({
       lrcList: lrcList
     })

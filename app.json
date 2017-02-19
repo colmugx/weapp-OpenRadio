@@ -2,9 +2,7 @@
   "pages":[
     "pages/recommend/recommend",
     "pages/list/list",
-    "pages/player/player",
-    "pages/index/index",
-    "pages/logs/logs"
+    "pages/player/player"
   ],
   "window":{
     "backgroundTextStyle":"light",

@@ -8,6 +8,10 @@
 ## 截图（Screenshot）
 ![](https://github.com/ColMugX/GitBed/raw/master/blog/weapp-openradio.gif)
 ![](https://github.com/ColMugX/GitBed/raw/master/weapp-openradio/1.gif)
+![](https://github.com/ColMugX/GitBed/raw/master/weapp-openradio/2.gif)
+![](https://github.com/ColMugX/GitBed/raw/master/weapp-openradio/3.gif)
+![](https://github.com/ColMugX/GitBed/raw/master/weapp-openradio/4.gif)
+![](https://github.com/ColMugX/GitBed/raw/master/weapp-openradio/5.gif)
 
 ~~没错这是之前的版本，由于更新了API现在长得略有不同~~
 
@@ -28,6 +32,7 @@
 
 ### 即将完成
 * 轮播专题页面
+* 通过输入歌单ID，选曲单曲播放。
 * 播放器界面完善
     ~~title&author~~
     ~~album~~
@@ -36,7 +41,7 @@
     * play&pause && next&prev
 
 ### 长线型完成…
-* 连续播放
+* 创建播放列表
 * 歌手音乐页面
 * 搜索功能
     * 歌单
