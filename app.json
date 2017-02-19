@@ -2,7 +2,8 @@
   "pages":[
     "pages/recommend/recommend",
     "pages/list/list",
-    "pages/player/player"
+    "pages/player/player",
+    "pages/finder/finder"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -16,6 +17,12 @@
     "backgroundColor": "#FFF",
     "borderStyle": "white",
     "list": [
+      {
+        "pagePath": "pages/finder/finder",
+        "text": "发现音乐",
+        "iconPath": "asset/finder.png",
+        "selectedIconPath": "asset/finder-highlight.png"
+      },
       {
         "pagePath": "pages/recommend/recommend",
         "text": "推荐列表",

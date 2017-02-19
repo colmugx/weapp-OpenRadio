@@ -35,7 +35,7 @@
 }
 
 .song-lyric {
-  margin-top: 50%;
+  margin-top: 45%;
 }
 .song-lyric-con {
   text-align: center;

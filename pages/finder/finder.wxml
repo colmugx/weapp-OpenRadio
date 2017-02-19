@@ -1,0 +1,7 @@
+<view class="container">
+  <form bindsubmit="findMusic" bindreset="">
+    <text>我想知道你要的歌曲ID：</text>
+    <input name="song" placeholder="目前只能从web版获得" />
+    <button formType="submit">播放！</button>
+  </form>
+</view>

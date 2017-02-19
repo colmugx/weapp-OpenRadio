@@ -1,5 +1,5 @@
 import api from '../../utils/api'
-
+let songUrl = '',name = ''
 Page({
   data:{
     ctrl: "音乐控制区域",
@@ -41,11 +41,11 @@ Page({
         ids: [id]
       },
       success: (res) => {
-        let songUrl = res.data.songs[0].mp3Url
+        songUrl = res.data.songs[0].mp3Url
         let song_info = res.data.songs[0]
         let album_big = song_info.album.blurPicUrl
         let album_small = song_info.album.picUrl
-        let name = song_info.name
+        name = song_info.name
         let author = song_info.artists[0].name
         that.setData({
           nowPlay: songUrl,
@@ -53,12 +53,15 @@ Page({
           songName: name,
           album: album_big
         })
-        wx.playBackgroundAudio({
+        this.playSong(songUrl, name)
+      }
+    })
+  },
+  playSong: function (songUrl, name) {
+    wx.playBackgroundAudio({
           dataUrl: songUrl,
           title: name
         })
-      }
-    })
   },
   getLrc: function (id) {
     wx.request({
@@ -104,7 +107,7 @@ Page({
         lrc: outLrc[i]
       })
     }
-    console.log(outLrc)
+    // console.log(outLrc)
     that.setData({
       lrcList: lrcList
     })
@@ -140,7 +143,7 @@ Page({
         let s = e.status
         switch (s) {
           case 0:
-
+            this.playSong(songUrl, name)
             break;
           case 1:
             wx.pauseBackgroundAudio()
