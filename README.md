@@ -8,6 +8,8 @@
 ## 截图（Screenshot）
 ![](https://github.com/ColMugX/GitBed/raw/master/blog/weapp-openradio.gif)
 ![](https://github.com/ColMugX/GitBed/raw/master/weapp-openradio/1.gif)
+
+
 ![](https://github.com/ColMugX/GitBed/raw/master/weapp-openradio/2.gif)
 ![](https://github.com/ColMugX/GitBed/raw/master/weapp-openradio/3.gif)
 ![](https://github.com/ColMugX/GitBed/raw/master/weapp-openradio/4.gif)
