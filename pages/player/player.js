@@ -1,5 +1,5 @@
 import api from '../../utils/api'
-let songUrl = '',name = ''
+let songUrl = '',name = '', paraID = ''
 Page({
   data:{
     ctrl: "音乐控制区域",
@@ -10,8 +10,12 @@ Page({
   onLoad:function(param) {
     // 页面初始化 options为页面跳转所带来的参数
     let id = param.id
-    this.getSong(id)
-    this.getLrc(id)
+    if (id == '0') this.getSong(paraID)
+    else {
+      paraID = id
+      this.getSong(paraID)
+    }
+      this.getLrc(paraID)
   },
   onReady:function(){
     // 页面渲染完成
@@ -90,7 +94,7 @@ Page({
       if (!forLrc) return
 
       let lrcTime = forLrc[1]
-      let lrcText = forLrc[2] || '(这段明显是间奏！)'
+      let lrcText = forLrc[2] || ''
       outLrc[lrcTime] = lrcText
     }, that);
 
@@ -135,23 +139,25 @@ Page({
   clickPlay:function() {
     let that = this
     var play = that.data.status === 'pause' ? 'play' : 'pause'
-    that.setData({
-      status: play
-    })
     wx.getBackgroundAudioPlayerState({
       success: (e) => {
         let s = e.status
         switch (s) {
           case 0:
+            play = 'play'
             this.playSong(songUrl, name)
             break;
           case 1:
+            play = 'pause'
             wx.pauseBackgroundAudio()
             break;
           default:
             break;
         }
       }
+    })
+    that.setData({
+      status: play
     })
   },
   formatTime:(time) => {

@@ -20,3 +20,10 @@
     </view>
   </block>
 </scroll-view>
+<view class="backPlay" style="display:{{ isPlay }};" bindtap="goPlayer">
+  <image src="{{ pic }}" />
+  <view class="backPlay-msg">
+    <text>{{ name }}</text>
+    <text class="author">{{ author }}</text>
+  </view>
+</view>

@@ -1,6 +1,6 @@
 <view class="container">
   <view bindtap="pauseSong">
-    <image src="/asset/pause.png" style="width:100px;height:100px" />
+    <button type="default" size="miniSize" bindtap="havaTest">Button</button>
   </view>
-  <text>暂时找不到怎么处理暂停，凑合着用先</text>
+  <text>测试：能否从外部进入播放器</text>
 </view>

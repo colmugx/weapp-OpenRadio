@@ -17,7 +17,10 @@ Page({
   onUnload:function(){
     // 页面关闭
   },
-  pauseSong: function () {
-    wx.stopBackgroundAudio()
+  havaTest: function () {
+    let id = '0'
+    wx.navigateTo({
+      url: `../player/player?id=${id}`
+    })
   }
 })

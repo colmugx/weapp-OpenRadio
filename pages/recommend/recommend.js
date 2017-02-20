@@ -14,6 +14,7 @@ Page({
   },
   onShow:function(){
     // 页面显示
+    this.isPlay();
   },
   onHide:function(){
     // 页面隐藏
@@ -64,6 +65,7 @@ Page({
     wx.navigateTo({
       url: '../player/player?id=' + id
     })
+    this.getPlayMsg(id)
   },
   getNetInfo: function () {
     wx.getNetworkType({
@@ -78,6 +80,48 @@ Page({
           })
         }
       }
+    })
+  },
+  isPlay: function () {
+    let that = this
+    var x = 'block'
+    wx.getBackgroundAudioPlayerState({
+      success: (e) => {
+        let s = e.status
+        if (s == 2) {x = 'none'}
+        else {x = 'block'}
+        that.setData({
+          isPlay: x
+        })
+      }
+    })
+  },
+  getPlayMsg: function (id) {
+    let that = this
+    wx.request({
+      url: api.apiUrl.host + api.apiUrl.song,
+      data: {
+        id: id,
+        ids: [id]
+      },
+      success: (res) => {
+        let song_info = res.data.songs[0]
+        let name = song_info.name
+        let author = song_info.artists[0].name
+        let album_small = song_info.album.picUrl
+
+        that.setData({
+          pic: album_small,
+          name: name,
+          author: author
+        })
+      }
+    })
+  },
+  goPlayer: function() {
+    let id = '0'
+    wx.navigateTo({
+      url: `../player/player?id=${id}`
     })
   }
 })

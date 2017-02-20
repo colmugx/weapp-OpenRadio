@@ -3,22 +3,18 @@
 > 依然是粗暴的解决了音乐播放问题。还粗暴的解决了歌词滚动
 
 ## 介绍（Summary）
-微信小程序，一个开源的音乐播放器，资源来源某云（红色的那个）。
+微信小程序，一个开源自由的音乐播放器。
 
 ## 截图（Screenshot）
 ![](https://github.com/ColMugX/GitBed/raw/master/blog/weapp-openradio.gif)
+
 ![](https://github.com/ColMugX/GitBed/raw/master/weapp-openradio/1.gif)
-
-
 ![](https://github.com/ColMugX/GitBed/raw/master/weapp-openradio/2.gif)
 ![](https://github.com/ColMugX/GitBed/raw/master/weapp-openradio/3.gif)
 ![](https://github.com/ColMugX/GitBed/raw/master/weapp-openradio/4.gif)
-![](https://github.com/ColMugX/GitBed/raw/master/weapp-openradio/5.gif)
-
-~~没错这是之前的版本，由于更新了API现在长得略有不同~~
 
 ## 使用（Usage）
-这东西还能怎么用啊？！微信公众号！
+[微信小程序](https://mp.weixin.qq.com/cgi-bin/wx)，由于正式上线了所以请移步官网查看。
 
 ## 目前状态（State）
 1. 目前的状态就是非常粗暴的完成了播放任务，日后会持续更新和完善。
@@ -35,23 +31,22 @@
 6. 可以在播放器内暂停播放了！即将有播放列表意味着可以上一曲和下一曲。
 7. 目前实现歌曲ID直接播放。
 
+    2017/2/20
+8. 播放状态中，在推荐列表会显示“正在播放窗口”，点击可进入播放器。
+
 ### 即将完成
 * 轮播专题页面
-* 通过输入歌单ID，选曲单曲播放。
+* 通过输入歌单ID，整张歌单播放
+* 搜索功能
+    * 歌单
+    * 歌手
 * 播放器界面完善
-    ~~title&author~~
-    ~~album~~
-    ~~progress&time~~
-    
     * next&prev
 
 ### 长线型完成…
 * 创建播放列表
 * 歌手音乐页面
-* 搜索功能
-    * 歌单
-    * 歌手
 
 ## 支持（Support）
-- 支持不来…
+- 毕竟兴趣型维护
 - 有问题**ISSUE**
