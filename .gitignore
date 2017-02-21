@@ -4,3 +4,5 @@ Thumbs.db
 db.json
 *.log
 node_modules/
+typings
+.wing
