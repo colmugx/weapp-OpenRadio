@@ -1,6 +1,8 @@
+import api from '../../utils/api'
+
 Page({
   data:{
-    text:"Page finder"
+
   },
   onLoad:function(event){
     // 页面初始化 options为页面跳转所带来的参数
@@ -19,6 +21,8 @@ Page({
   },
   findMusic: function(e){
     let songID = e.detail.value.song
+    api.wId = songID
+
     wx.navigateTo({
       url: '../player/player?id=' + songID
     })

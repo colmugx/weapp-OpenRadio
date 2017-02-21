@@ -30,16 +30,14 @@ Page({
   },
   onHide:function(){
     // 页面隐藏
-    wx.pauseBackgroundAudio();
+    api.playCtrl.pause()
   },
   onUnload:function(){
     // 页面关闭
   },
   getSong:function(id) {
     let that = this
-    wx.request({
-      url: api.apiUrl.host + api.apiUrl.song || '',
-      method: 'GET',
+    api.request.music({
       data: {
         id: id,
         ids: [id]
@@ -62,15 +60,13 @@ Page({
     })
   },
   playSong: function (songUrl, name) {
-    wx.playBackgroundAudio({
-          dataUrl: songUrl,
-          title: name
-        })
+    api.playCtrl.play({
+      url: songUrl,
+      title: name
+    })
   },
   getLrc: function (id) {
-    wx.request({
-      url: api.apiUrl.host + api.apiUrl.lrc || '',
-      method: 'GET',
+    api.request.lrc({
       data: {
         id: id,
         lv: -1
@@ -81,7 +77,7 @@ Page({
     })
   },
   lrcReq: function (res) {
-    let strFot = /\[(\d{2}:\d{2})\.\d{2,}\](.*)/
+    let strFot = /\[(\d{2}:\d{2})\.\d{2,3}\](.*)/
     let that = this
     var outLrc = {}
     var lrcList = []
@@ -94,7 +90,7 @@ Page({
       if (!forLrc) return
 
       let lrcTime = forLrc[1]
-      let lrcText = forLrc[2] || ''
+      let lrcText = forLrc[2] || '(space)'
       outLrc[lrcTime] = lrcText
     }, that);
 
@@ -119,7 +115,7 @@ Page({
   getSongStatus: function () {
     let that = this
     setInterval(() => {
-      wx.getBackgroundAudioPlayerState({
+      api.playCtrl.getState({
         success: (res) => {
           let status = res.status
           let currentPosition = res.currentPosition
@@ -139,7 +135,7 @@ Page({
   clickPlay:function() {
     let that = this
     var play = that.data.status === 'pause' ? 'play' : 'pause'
-    wx.getBackgroundAudioPlayerState({
+    api.playCtrl.getState({
       success: (e) => {
         let s = e.status
         switch (s) {
@@ -149,7 +145,7 @@ Page({
             break;
           case 1:
             play = 'pause'
-            wx.pauseBackgroundAudio()
+            api.playCtrl.pause()
             break;
           default:
             break;

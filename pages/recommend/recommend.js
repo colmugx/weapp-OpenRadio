@@ -23,12 +23,7 @@ Page({
     // 页面关闭
   },
   getPlayList: function () {
-    wx.request({
-      url: api.apiUrl.host + api.apiUrl.playlist || '',
-      method: 'GET',
-      data: {
-        id: api.setting.hotlistid
-      },
+    api.request.hotList({
       success: (res) => {
         let rec = []
         let that = this
@@ -65,10 +60,10 @@ Page({
     wx.navigateTo({
       url: '../player/player?id=' + id
     })
-    this.getPlayMsg(id)
+    api.wId = id
   },
   getNetInfo: function () {
-    wx.getNetworkType({
+    api.netType({
       success: (e) => {
         var type = e.networkType
         if (type != 'wifi') {
@@ -85,11 +80,14 @@ Page({
   isPlay: function () {
     let that = this
     var x = 'block'
-    wx.getBackgroundAudioPlayerState({
+    api.playCtrl.getState({
       success: (e) => {
         let s = e.status
         if (s == 2) {x = 'none'}
-        else {x = 'block'}
+        else {
+          x = 'block';
+          if (api.wId != 0) this.getPlayMsg(api.wId);
+        }
         that.setData({
           isPlay: x
         })
@@ -98,8 +96,7 @@ Page({
   },
   getPlayMsg: function (id) {
     let that = this
-    wx.request({
-      url: api.apiUrl.host + api.apiUrl.song,
+    api.request.music({
       data: {
         id: id,
         ids: [id]
