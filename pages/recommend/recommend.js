@@ -1,11 +1,12 @@
 import api from '../../utils/api'
-
+let track = 0, page = 0,np = 1, songlist = ''
 Page({
   data:{
     songRec: []
   },
   onLoad:function(){
     // 页面初始化 options为页面跳转所带来的参数
+    this.getHeight();
     this.getPlayList();
     this.getNetInfo();
   },
@@ -27,32 +28,65 @@ Page({
       success: (res) => {
         let rec = []
         let that = this
-        let songlist = res.data.result.tracks;
+        songlist = res.data.result.tracks;
         let code = res.data.code
         let title,author,album,album_title,song_id;
         if (code == 200) {
-          for (let i=0,len=10;i<len;i++) {
-            title = songlist[i].name;
-            author = songlist[i].artists[0].name;
-            album = songlist[i].album.picUrl;
-            album_title = songlist[i].album.name;
-            song_id = songlist[i].id;
-            rec.push({
-              "title":title,
-              "author":author,
-              "album":album,
-              "album_title":album_title,
-              "song_id":song_id
-            })
+          let len = songlist.length
+          track = len
+          if (len > 0 && len <= 10) {
+            page = 1
+          }else {
+            if (len % 10 == 0) page = len / 10;
+            else page = Math.floor(len / 10) + 1;
           }
-          that.setData({
-            songRec: rec
-          })
+          this.lineList(page, track, songlist)
         }
       },
       fail: (err) => {
         console.log(err)
       }
+    })
+  },
+  lineList: function (page, track, songlist) {
+    let that = this;
+    let rec = []
+    let title,author,album,album_title,song_id;
+
+    if (page == 1) {
+      for (let i = 0; i < track; i++) {
+        title = songlist[i].name;
+        author = songlist[i].artists[0].name;
+        album = songlist[i].album.picUrl;
+        album_title = songlist[i].album.name;
+        song_id = songlist[i].id;
+        rec.push({
+          "title": title,
+          "author": author,
+          "album": album,
+          "album_title": album_title,
+          "song_id": song_id
+        })
+      }
+    } else {
+      let now = np * 10
+      for (let i = 0; i < now; i++) {
+        title = songlist[i].name;
+        author = songlist[i].artists[0].name;
+        album = songlist[i].album.picUrl;
+        album_title = songlist[i].album.name;
+        song_id = songlist[i].id;
+        rec.push({
+          "title": title,
+          "author": author,
+          "album": album,
+          "album_title": album_title,
+          "song_id": song_id
+        })
+      }
+    }
+    that.setData({
+      songRec: rec
     })
   },
   playSong: function (e) {
@@ -120,5 +154,22 @@ Page({
     wx.navigateTo({
       url: `../player/player?id=${id}`
     })
+  },
+  getHeight: function() {
+    let that = this
+    wx.getSystemInfo({
+      success: (res) => {
+        that.setData({scrollHeight:res.windowHeight})
+      }
+    })
+  },
+  loadMore: function() {
+
+    if (page != 1) {
+      page -= 1
+      np += 1
+    }
+    console.log(page)
+    this.lineList(page, track, songlist);
   }
 })

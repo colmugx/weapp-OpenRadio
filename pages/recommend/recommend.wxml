@@ -1,4 +1,4 @@
-<scroll-view scroll-y="true">
+<scroll-view scroll-y="true" scroll-top="{{scrollTop}}" style="height:{{scrollHeight}}px;" bindscrolltolower="loadMore">
   <block wx:for="{{ songRec }}" wx:for-item="song" wx:key="song">
     <view class="song_list">
       <view class="song-album">

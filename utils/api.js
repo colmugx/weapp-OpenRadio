@@ -7,7 +7,8 @@ const apiUrl = {
 }
 //总觉得日后有各种列表…
 const kindsList = {
-    hotlistid: '554473977'
+    // hotlistid: '554473977'
+    hotlistid: '3778678'
 }
 //广播个接口尝试一下
 var wId = 0
